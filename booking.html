@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TM Adventure | Book a Trip </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+  <link rel="icon" href="images/wolf moon.jpeg" type="image/x-icon">
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+    /* Form Styles */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .booking-form {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      flex: 1;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select {
+      width: calc(100% - 40px); /* Adjusted width to accommodate the icon */
+      padding: 14px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    /* Error Styles */
+    .error-message {
+      color: #ff0000;
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 15px;
+    }
+    /* Responsive Styles */
+    @media(max-width: 768px) {
+      .container {
+        padding: 10px;
+        flex-direction: column;
+      }
+      .booking-form {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Booking Form -->
+  <div class="booking-form">
+    <h1>Book Your Stay</h1>
+    <form id="bookingForm" action="#" method="post" onsubmit="return validateForm()">
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
+
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]+" required>
+
+      <label for="check_in_date">Check-in Date:</label>
+      <input type="date" id="check_in_date" name="check_in_date" required>
+
+      <label for="check_out_date">Check-out Date:</label>
+      <input type="date" id="check_out_date" name="check_out_date" required>
+
+      <label for="citizenship">Citizenship:</label>
+      <select id="citizenship" name="citizenship" required>
+        <option value="" disabled selected>Select your country</option>
+        <option value="USA">United States</option>
+        <option value="UK">United Kingdom</option>
+        <option value="CA">Canada</option>
+        <!-- Add more countries as needed -->
+      </select>
+
+      <input type="submit" value="Book Now">
+    </form>
+    <div id="errorContainer"></div>
+  </div>
+</div>
+
+<script>
+  function validateForm() {
+    var firstName = document.getElementById("first_name").value;
+    var lastName = document.getElementById("last_name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var checkInDate = document.getElementById("check_in_date").value;
+    var checkOutDate = document.getElementById("check_out_date").value;
+    var citizenship = document.getElementById("citizenship").value;
+    var errorContainer = document.getElementById("errorContainer");
+    errorContainer.innerHTML = "";
+
+    if (firstName === "" || lastName === "" || email === "" || phone === "" || checkInDate === "" || checkOutDate === "" || citizenship === "") {
+      showError("Please fill out all fields.");
+      return false;
+    }
+
+    // Validate email format
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showError("Please enter a valid email address.");
+      return false;
+    }
+
+    return true;
+  }
+
+  function showError(message) {
+    var errorContainer = document.getElementById("errorContainer");
+    var errorMessage = document.createElement("div");
+    errorMessage.classList.add("error-message");
+    errorMessage.textContent = message;
+    errorContainer.appendChild(errorMessage);
+  }
+</script>
+
+</body>
+</html>

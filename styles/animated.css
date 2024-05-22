@@ -1,0 +1,33 @@
+.animated-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.animated-button:hover {
+    background-color: #45a049; /* Darker Green */
+}
+
+/* Define animation */
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-5px, 0); }
+    40% { transform: translate(5px, 0); }
+    60% { transform: translate(-5px, 0); }
+    80% { transform: translate(5px, 0); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Apply animation */
+.animated-button:hover {
+    animation-name: shake;
+    animation-duration: 0.5s;
+}

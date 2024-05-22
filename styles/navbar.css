@@ -1,0 +1,87 @@
+body{
+    font-family: 'Poppins', 'Courier New', monospace;
+    background-color: #cccc02;
+    height: 200vh;
+}
+.bg-light{
+    background-color: #f0f0f0 !important;
+}
+.btn{
+    font-weight:500;
+    transition: .5s;
+
+}
+
+.btn.btn-primary{
+    color: #ffffff;
+}
+.btn-sm-square{
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-weight: normal;
+}
+.navbar .dropdown-toggle::after{
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+.navbar-light .navbar-nav .nav-link{
+    margin-right: 30px;
+    padding: 25px 0;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight:500;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+ .navbar-light .navbar-nav .nav-link:active{
+    color: blue;
+}
+@media(max-width: 991.98px){
+    .navbar-light .navbar-nav .nav-link{
+        margin-right: 0;
+        padding: 10px 0;
+    }
+    .navbar-light .navbar-nav{
+        border-top: 1px solid #EEEEEE;
+    }
+}
+.navbar-light .navbar-brand,
+.navbar-light a.btn{
+    height:75px;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: black;
+    font-weight: 500;
+}
+.navbar-light .sticky-top{
+    top:-100px;
+    transition: .5s;
+}
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu{
+        display: block;
+        border:none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+
+    }
+    .navbar .nav-item:hover.dropdown-menu{
+        opacity: 1;
+        visibility: visible;
+        top: 100%;
+        transition: .5s;
+    }
+}
